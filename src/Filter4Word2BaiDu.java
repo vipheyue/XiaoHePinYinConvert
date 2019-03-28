@@ -41,14 +41,13 @@ public class Filter4Word2BaiDu {
 
     private static String formartDataOld(String otherDataJson) {
         String[] split = otherDataJson.split(",");
-        if (split[1].length() == 2 && split[0].length() == 4) {
-            return "";
-        } else {
+        if (split[1].length() != 1 && split[1].length() == split[0].length()) {
             //en=1,恩恩
             String convertedStr = split[0] + "=1," + split[1];
 //            System.out.println(convertedStr);
             return convertedStr;
-
+        } else {
+            return "";
         }
     }
 
@@ -56,7 +55,7 @@ public class Filter4Word2BaiDu {
         String resultdata = data.replace("\\", "");
 //        System.out.println(resultdata);
         //生成文件
-        FileWriter fileWriter = new FileWriter("/Users/heyue/Downloads/小鹤双拼三字以上百度版本.txt");//生成好之后必须 手动 复制到原文件里面 有文件属性
+        FileWriter fileWriter = new FileWriter("/Users/heyue/Downloads/小鹤234字超级简码.txt");//生成好之后必须 手动 复制到原文件里面 有文件属性
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(resultdata);
         bufferedWriter.flush();
